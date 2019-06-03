@@ -1,0 +1,56 @@
+
+
+
+
+<div class="d-flex align-items-center" *ngIf="loading" style="position: relative;top: 100px;">
+
+  <mat-spinner style="margin:0 auto" ></mat-spinner>
+
+</div>
+
+  <div *ngIf="!loading" class="fab-con">
+    <button mat-fab class="fav-icon" routerLink="../addimage/0">
+            <mat-icon aria-label="label">add</mat-icon>
+        </button>        
+  </div>
+
+  <mat-form-field *ngIf="!loading"  style="padding: 0 20px">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8" [style.display]="display">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th style="width:5%" mat-header-cell *matHeaderCellDef mat-sort-header>Edit</th>
+            <td style="width:5%" mat-cell *matCellDef="let row"><mat-icon style="cursor:pointer" aria-label="label" routerLink="../addimage/{{row._id}}">edit</mat-icon></td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="image">
+              <th style="width:5%" mat-header-cell *matHeaderCellDef mat-sort-header> ststics </th>
+              <td style="width:5%" mat-cell *matCellDef="let row"> <mat-icon style="cursor:pointer" aria-label="label">assessment</mat-icon></td>
+            </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="question">
+            <th style="width:40%" mat-header-cell *matHeaderCellDef mat-sort-header> Question </th>
+            <td style="width:40%" mat-cell *matCellDef="let row"> {{row.question}} </td>
+          </ng-container>
+      
+          <!-- Color Column -->
+          <ng-container matColumnDef="answers">
+            <th style="width:40%" mat-header-cell *matHeaderCellDef mat-sort-header> Answers</th>
+            <td style="width:40%" mat-cell *matCellDef="let row" > {{row.answers}} </td>
+          </ng-container>
+
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+          </tr>
+        </table>
+      
+      <mat-paginator style="padding-right: 130px" hidePageSize [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+  
+      </div >

@@ -1,0 +1,12 @@
+<div class="login-page">
+  <p class="login-title">Insert Username and Password to login</p>
+  <div class="form">
+    <form class="login-form">
+      <input type="text" placeholder="Username" name="email" [(ngModel)]="credentials.email"/>
+      <input type="password" placeholder="Password" name="password" [(ngModel)]="credentials.password"/>
+      <button mat-button style="background-color: #4CAF50;color: white;width:100%"  (click)="login()" >login</button>
+      <p class="message">Forgot password ? <a routerLink="/pass-reset">Reset password</a></p>
+      <p class="message" style="color:red" *ngIf="error_msg">{{error_msg}}</p>
+    </form>
+  </div>
+</div>

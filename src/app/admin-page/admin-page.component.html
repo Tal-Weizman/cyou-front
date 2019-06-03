@@ -1,0 +1,122 @@
+<app-navbar></app-navbar>
+
+<mat-toolbar  >
+                <span>Dashboard</span>
+               <span class="spacer"></span>
+
+                    <mat-icon matTooltip="Users Mennagment" style="cursor:pointer" aria-label="label" routerLink="users">person</mat-icon>  
+                    <span style="margin-right:15px"></span>
+                    <mat-icon matTooltip="Image Mennagment" style="cursor:pointer" aria-label="label" routerLink="images">collections</mat-icon>
+                    <span style="margin-right:15px"></span>
+                    <mat-icon matTooltip="Predefine questions/answers" style="cursor:pointer" aria-label="label" routerLink="predefines">help</mat-icon>
+</mat-toolbar>
+
+<router-outlet ></router-outlet>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">  
+        <br>
+        <div class="row">
+            <div class="col">
+                    <mat-card class="top-pro-card">          
+                            <mat-card-content>    
+                                
+                                <span >Image/s Upload</span>
+                                <p style="color:lightgrey;font-size: 13px">drop files or press browse to add them menualy</p>    
+                                <span class="spacer"></span>
+                              
+                                    <mat-icon aria-label="label" style="float:right;position:relative;top:-50px">cloud_upload</mat-icon>
+                                    <input  (change)="onFileSelect($event)" [hidden]="true" type="file" accept="image/*" #file>
+                                    <mat-divider></mat-divider>
+    
+                                            <div class="row">
+                                 
+                                                <div class="col" style="height:300px;margin-left: 15px;margin-top: 15px">
+                                                
+                                                    <button mat-button (click)="file.click()">
+                                                            <mat-icon aria-label="label"   style="position:relative">open_in_browser</mat-icon>
+                                                            upload image
+                                                        </button>
+                                                    <img src="{{base64textString}}" alt="" class="prev-image">
+                                                        
+    
+                                                </div>
+                                                
+    
+                                                <div class="col">
+    
+                                                        <mat-form-field>
+                                                                <input matInput placeholder="Enter the user NAME" [(ngModel)]="credentials.name" [formControl]="username" required>
+                                                                <mat-error *ngIf="username.invalid">{{getNameErrorMessage()}}</mat-error>
+                                                              </mat-form-field>
+                                                              <br>
+                                                              <mat-form-field>
+                                                                      <input matInput placeholder="Enter the user EMAIL" [(ngModel)]="credentials.email" [formControl]="email" required>
+                                                                      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                                                                      
+                                                              </mat-form-field>
+                                                </div>                                         
+    
+                                            </div>
+                                         
+                                            
+                                            
+                                       
+                                            
+    
+                                            
+                                            
+                                        
+                            </mat-card-content>                  
+                        </mat-card>
+    
+            </div>
+            <div class="col">
+    
+                    <mat-card class="top-pro-card">          
+                            <mat-card-content>    
+                                
+                                <span >New User</span>    
+                                <p style="color:lightgrey;font-size: 13px">register new user , insert details , email with password </p>    
+                                    <mat-divider></mat-divider>
+                                    <br><br>
+                                    <div class="center" >
+                                    
+                                            <div class="example-container">
+                                                
+                                                    <mat-form-field>
+                                                      <input matInput placeholder="Enter the user NAME" [(ngModel)]="credentials.name" [formControl]="username" required>
+                                                      <mat-error *ngIf="username.invalid">{{getNameErrorMessage()}}</mat-error>
+                                                    </mat-form-field>
+                                                    <br>
+                                                    <mat-form-field>
+                                                            <input matInput placeholder="Enter the user EMAIL" [(ngModel)]="credentials.email" [formControl]="email" required>
+                                                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                                                            
+                                                    </mat-form-field>
+                                                    <br>
+                                                <div class="row">
+                                                    <div class="col"><mat-checkbox [(ngModel)]="credentials.password">Is Admin</mat-checkbox></div>
+                                                    <div class="col"><button mat-raised-button (click)="register()" >Register</button></div>
+                                                    <div class="col"><button style="background-color:#2788D4"  routerLink="/users" mat-raised-button>All Users</button></div>
+                                                </div>
+                                                                                             
+                                            </div>                                    
+                                    </div>
+                            </mat-card-content>                  
+                        </mat-card>
+            </div>
+    
+            
+            
+    
+        </div>
+    </div> -->

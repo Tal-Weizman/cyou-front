@@ -1,0 +1,38 @@
+.home-toolbar{
+
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    background-color: #4CAF50;
+}
+
+
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+
+  .main-card {
+    max-width: 400px;
+
+    margin: 0 auto;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+
+  .ans-button{
+    background-color:#4CAF50;
+    color: white;
+  }
+
+
+

@@ -1,0 +1,61 @@
+<div *ngIf="!loading"  class="fab-con">
+    <button mat-fab class="fav-icon" (click)="save_or_update()">
+            <mat-icon aria-label="label">save</mat-icon>
+        </button>        
+</div>
+
+<div class="d-flex align-items-center" *ngIf="loading" style="height:400px">
+
+  <mat-spinner style="margin:0 auto" ></mat-spinner>
+
+</div>
+
+
+<div *ngIf="!loading"  class="container-fluid">
+  <br>
+
+
+  
+
+
+  <div class="row" style="padding:0 100px">
+
+      <div class="row">
+          
+        <div class="col">
+          <button mat-button style="background-color: #4CAF50;color: white" (click)="file.click()">upload image</button>
+        </div>
+        <div class="col">
+
+            <input  (change)="onFileSelect($event)" [hidden]="true" type="file" accept="image/*" #file>
+
+          <div style="height:200px;width:300px;background-color: lightgray">
+          
+              <img src="{{base64textString}}" style="height:100%;width:100%" alt="">
+          </div>
+          
+
+        </div>
+        
+        
+        </div>
+      
+      <mat-form-field style="width: 100%;margin:10px 0 0 0">
+          <input matInput [(ngModel)]="quastion"  placeholder="Question">
+          <mat-icon matSuffix>help</mat-icon>
+          </mat-form-field >
+      <br>
+
+        <button mat-button style="background-color: #4CAF50;color:white;margin: 20px 0" (click)="add_text_box()">+ add answer</button>
+        
+        <mat-form-field *ngFor="let t of textbox; let i=index"  style="width: 100%">
+          <input matInput  placeholder="Answer {{i+1}}" [(ngModel)]="this['datatext' + t.num]">
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+
+        
+      
+
+  </div>
+</div>
+<br><br>

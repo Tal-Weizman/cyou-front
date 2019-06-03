@@ -1,0 +1,19 @@
+.pro-card {
+    
+    margin: 0 auto;
+    margin: 20px;
+  }
+
+
+  .top-pro-card {
+    width: 100%;
+    margin: 5px;
+  }
+
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+  }

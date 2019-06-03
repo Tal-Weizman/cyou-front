@@ -1,0 +1,24 @@
+<div class="fab-con">
+    <button mat-fab class="fav-icon" (click)="save_or_update()">
+            <mat-icon aria-label="label">save</mat-icon>
+        </button>        
+</div>
+
+
+<div class="container-fluid">
+  <br><br>
+  <div class="row" style="padding:0 100px">
+      <mat-form-field style="width: 100%">
+          <input matInput [(ngModel)]="user.name" placeholder="Name">
+        </mat-form-field >
+        <mat-form-field style="width: 100%">
+          <input matInput [(ngModel)]="user.email" placeholder="Email">
+        </mat-form-field>
+        
+      <mat-checkbox style="margin-top:20px" [(ngModel)]="user.admin">Administrator Privileges</mat-checkbox>
+
+  </div>
+</div>
+
+
+

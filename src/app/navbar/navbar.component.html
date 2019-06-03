@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="home-toolbar">
+
+  <mat-toolbar-row>
+    
+      <mat-icon *ngIf="this.router.url !== '/home'" (click)="goBack()" class="example-icon" style="padding: 0 25px 0 0;cursor: pointer;" aria-hidden="false" aria-label="Example user verified icon" >{{ this.router.url !== "/admin" ? "arrow_back" : "home"}}</mat-icon>
+      <span class="spacer"></span>
+      <span>Title</span>
+    <span class="spacer"></span>
+    
+    <mat-icon class="example-icon" aria-hidden="false" style="cursor:pointer" aria-label="Example user verified icon" [matMenuTriggerFor]="menu">account_circle</mat-icon>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngIf="this.router.url !== '/home'" routerLink="/home">Home</button>
+        <button mat-menu-item  routerLink="/profile">Profile</button>
+        <button mat-menu-item  routerLink="/admin" *ngIf="auth.isAdmin()">Admin</button>
+        <button mat-menu-item (click)="auth.logout()">Logout</button>
+      </mat-menu>
+      <span style="margin-right:15px"></span>
+  </mat-toolbar-row>
+
+</mat-toolbar>

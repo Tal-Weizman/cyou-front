@@ -1,0 +1,66 @@
+
+<div class="d-flex align-items-center" *ngIf="loading" style="position: relative;top: 100px;">
+
+  <mat-spinner style="margin:0 auto" ></mat-spinner>
+
+</div>
+
+
+<div class="fab-con" *ngIf="!loading">
+    <button mat-fab class="fav-icon" routerLink="../adduser/0">
+            <mat-icon aria-label="label">add</mat-icon>
+        </button>        
+</div>
+
+
+
+<mat-form-field style="padding: 0 20px" *ngIf="!loading">
+
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8" [style.display]="display">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Edit/Delete</th>
+        <td mat-cell *matCellDef="let row" ><mat-icon aria-label="label" style="cursor:pointer"  routerLink="../adduser/{{row.id}}">edit</mat-icon><mat-icon aria-label="label" style="cursor:pointer"   (click)="deleteUser(row.id)">delete</mat-icon></td>
+      </ng-container>
+
+      <ng-container matColumnDef="statics">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ststics</th>
+        <td mat-cell *matCellDef="let row" ><mat-icon style="cursor:pointer" routerLink="../user/{{row.id}}" aria-label="label">assessment</mat-icon></td>
+      </ng-container>
+  
+      <!-- Progress Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row">{{row.name}}</td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+      </ng-container>
+  
+      <!-- Color Column -->
+      <ng-container matColumnDef="admin">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> admin </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.admin}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Index </th>
+            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.index}} </td>
+          </ng-container>
+          
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator style="padding-right: 130px" hidePageSize [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+  </div>

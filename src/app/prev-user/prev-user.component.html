@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row">
+      <mat-card class="top-pro-card">
+  
+          <mat-card-header>
+              <div mat-card-avatar class="example-header-image">{{shortName}}</div>
+              <mat-card-title>{{details.name}}</mat-card-title>
+              <mat-card-subtitle>{{details.email}}</mat-card-subtitle>
+              <span style="flex: 1 1 auto"></span>
+              <div class="row text-center" style="margin-right:10px">
+                  <div class="col">
+                    <div class="counter" style="padding:20px 20px">
+                    <mat-icon class="example-icon" aria-hidden="false" style="cursor:pointer" aria-label="Example user verified icon" >photo</mat-icon>
+                    <h2 class="timer count-title count-number" >{{answersCount}}</h2>
+                    <p class="count-text ">Answerd Images Count</p>
+                  </div>
+               </div>
+            </div>
+            </mat-card-header>
+
+          <mat-card-content>
+            <br>
+            
+            <div class="row" style="padding:0 13px">
+              <h2>employee report...</h2>
+            </div>
+
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" (focus)="picker.open()" [(ngModel)]="p1" placeholder="Choose From date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <span style="padding:10px"></span>
+            
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker2" (focus)="picker2.open()"  autocomplete="off" [(ngModel)]="p2" placeholder="Choose To date">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            
+            <span style="padding:10px"></span>
+
+            <button (click)="getUserReport()" mat-raised-button style="background-color:#4CAF50;color: white">Show Data</button>
+
+            <span *ngIf="all_answers.length > 0" style="padding: 0 20px">Total: {{all_answers.length}}</span>
+
+          </mat-card-content>
+      
+        
+        </mat-card>
+
+        <mat-accordion style="width:100%">
+          <mat-expansion-panel *ngFor="let item of answers; let i=index">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+              {{parseDate(item.date)}}
+              </mat-panel-title>
+              <mat-panel-description>
+                Count : {{item.index}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-list role="list">
+              <mat-list-item  *ngFor="let obj of item.answers; let i=index" role="listitem">
+              <mat-icon style="color:#4CAF50" mat-list-icon>photo</mat-icon>
+              
+              <h4 mat-line>{{"User answerd: " + obj.answer}}</h4>
+              <p mat-line> {{parseDate(obj.createdAt) + " | " + parseTime(obj.createdAt)}} </p>
+              
+            </mat-list-item>
+            </mat-list>
+
+          </mat-expansion-panel>
+      
+        </mat-accordion>
+  
+  </div>
+</div>
+
+

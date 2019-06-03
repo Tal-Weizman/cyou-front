@@ -1,0 +1,16 @@
+.fav-icon{
+    background-color: #4CAF50;
+
+    margin: 20px auto 0;
+    position: relative;
+    
+}
+
+.fab-con{
+    
+        bottom: 0;
+        position: fixed;
+        margin: 1em;
+        right: 0px;
+      
+}

@@ -1,0 +1,13 @@
+<div class="login-page">
+  <p class="login-title">Insert name email and Password to register</p>
+  <div class="form">
+    <form class="login-form">
+      <input type="text" placeholder="Name" name="name" [(ngModel)]="credentials.name"/>
+      <input type="text" placeholder="Username" name="email" [(ngModel)]="credentials.email"/>
+      <input type="password" placeholder="Password" name="password" [(ngModel)]="credentials.password"/>
+      <button (click)="register()" >Register</button>
+      <p class="message">allredy a memeber  ? <a routerLink="/pass-reset">log in</a></p>
+      <p class="message" style="color:red" *ngIf="error_msg">{{error_msg}}</p>
+    </form>
+  </div>
+</div>

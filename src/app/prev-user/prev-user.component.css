@@ -1,0 +1,52 @@
+.pro-card {
+    
+    margin: 0 auto;
+    margin: 20px;
+  }
+
+
+  .top-pro-card {
+    width: 100%;
+    margin: 5px;
+  }
+
+
+  .example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    border: black 1px solid;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    padding-top:18px;
+  }
+
+  .counter {
+    background-color:#f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.count-text {
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #4ad1e5;
+}
+

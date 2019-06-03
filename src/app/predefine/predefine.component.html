@@ -1,0 +1,73 @@
+
+
+<div class="fab-con" *ngIf="!loading">
+  <button mat-fab  class="fav-icon" routerLink="../addpredefine/0">
+          <mat-icon aria-label="label">add</mat-icon>
+      </button>        
+</div>
+
+<div class="up-fab-con fadein" *ngIf="uploads.length > 0">
+    <button mat-fab  class="fav-icon" (click)="uploadData()">
+      <span style="left:20px;bottom:10px" matBadge="{{this.uploads.length}}" matBadgeOverlap="false"></span>
+            <mat-icon aria-label="label">input</mat-icon>
+    </button>        
+</div>
+
+
+<div class="d-flex align-items-center" *ngIf="loading" style="position: relative;top: 100px;">
+    
+  <div style="margin:0 auto">
+    <mat-spinner  ></mat-spinner>
+
+    <span style="margin-top:10px;background-color:black;color:white"  *ngIf="uploading">uploading {{uploads.length}} / {{ind}} ....</span>
+  </div>
+</div>
+  
+
+<mat-form-field *ngIf="!loading" style="padding: 0 20px">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<input  (change)="onFileSelect($event)" [hidden]="true" type="file" accept="image/*" multiple #file>
+
+
+<div class="mat-elevation-z8" [style.display]="display">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th style="width:10%" mat-header-cell *matHeaderCellDef mat-sort-header>Edit/Delete</th>
+      <td style="width:10%" mat-cell *matCellDef="let row"><mat-icon style="cursor:pointer" aria-label="label" routerLink="../addpredefine/{{row._id}}">edit</mat-icon><mat-icon style="cursor:pointer" aria-label="label" (click)="deletePre(row.id)">delete</mat-icon></td>
+    </ng-container>
+
+    <ng-container matColumnDef="upload">
+      <th style="width:5%" mat-header-cell *matHeaderCellDef mat-sort-header>Upload</th>
+      <td style="width:5%" mat-cell *matCellDef="let row"><mat-icon style="cursor:pointer" aria-label="label" (click)="file.click();selected(row)" >unarchive</mat-icon></td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="question">
+      <th style="width:30%" mat-header-cell *matHeaderCellDef mat-sort-header> Question </th>
+      <td style="width:30%" mat-cell *matCellDef="let row"> {{row.question}} </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="answers">   
+      <th style="width:30%" mat-header-cell *matHeaderCellDef mat-sort-header> Answers</th>
+      <td style="width:30%" mat-cell *matCellDef="let row" > {{row.answers}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="folder">   
+      <th style="width:30%" mat-header-cell *matHeaderCellDef mat-sort-header> Folder</th>
+      <td style="width:30%" mat-cell *matCellDef="let row" > {{row.folder}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+
+  <mat-paginator style="padding-right: 130px" hidePageSize [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+  
+</div>
